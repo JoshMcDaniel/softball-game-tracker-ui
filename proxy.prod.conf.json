@@ -1,0 +1,11 @@
+{
+  "/api": {
+    "target": "https://softball-game-tracker.onrender.com",
+    "pathRewrite": {
+      "/api": ""
+    },
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}
