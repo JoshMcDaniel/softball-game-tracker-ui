@@ -16,6 +16,6 @@ export class SoftballGameApiService {
     const options = {
       params: new HttpParams().set('documentId', gameId),
     };
-    return this.http.get(`/api/get`, options);
+    return this.http.get(`/api/getGameById`, options);
   }
 }
