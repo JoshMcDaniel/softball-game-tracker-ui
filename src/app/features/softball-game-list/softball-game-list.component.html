@@ -1,0 +1,9 @@
+<mat-list>
+    <div mat-subheader>{{title}}</div>
+    @for (game of softballGames; track game.homeTeamName + game.awayTeamName) {
+    <mat-list-item>
+        <img matListItemIcon src="/assets/images/softball-icon.png" class="icon" />
+        <div matListItemTitle>{{game.homeTeamName}} vs {{game.awayTeamName}}</div>
+    </mat-list-item>
+    }
+</mat-list>

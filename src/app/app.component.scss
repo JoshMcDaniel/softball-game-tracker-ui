@@ -1,0 +1,55 @@
+main {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    box-sizing: inherit;
+    position: relative;
+}
+
+.logo {
+    max-width: 9.2rem;
+}
+
+.icon {
+    width: 2em;
+    height: 2em;
+}
+
+.content {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 3rem;
+}
+
+.content h1 {
+    margin-top: 1.75rem;
+}
+
+.content p {
+    margin-top: 1.5rem;
+}
+
+.divider {
+    width: 1px;
+    background: var(--red-to-pink-to-purple-vertical-gradient);
+    margin-inline: 0.5rem;
+}
+
+@media screen and (max-width: 650px) {
+    .content {
+        flex-direction: column;
+        width: max-content;
+    }
+
+    .divider {
+        height: 1px;
+        width: 100%;
+        background: var(--red-to-pink-to-purple-horizontal-gradient);
+        margin-block: 1.5rem;
+    }
+}
