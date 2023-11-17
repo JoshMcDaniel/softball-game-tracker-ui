@@ -1,0 +1,15 @@
+.header {
+  margin-bottom: 2rem;
+}
+
+.list-item {
+  position: relative;
+  background-image: linear-gradient(to left, green, yellow);
+  margin-bottom: 1rem;
+  border-radius: 4px !important;
+}
+
+.list-item:hover {
+  cursor: pointer;
+  border: 1px solid gold;
+}
