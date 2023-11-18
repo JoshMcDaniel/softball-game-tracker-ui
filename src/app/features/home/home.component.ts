@@ -4,6 +4,9 @@ import { MatDividerModule } from '@angular/material/divider';
 import { SoftballGameListComponent } from '../softball-game-list/softball-game-list.component';
 import { SoftballGame } from '../../shared/models/SoftballGame.model';
 import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +15,11 @@ import { MatCardModule } from '@angular/material/card';
     CommonModule,
     MatDividerModule,
     MatCardModule,
+    MatButtonModule,
+    MatIconModule,
     DatePipe,
     SoftballGameListComponent,
+    RouterModule,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',

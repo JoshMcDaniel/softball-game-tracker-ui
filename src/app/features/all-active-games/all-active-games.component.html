@@ -19,7 +19,7 @@
     </mat-card-header>
     <mat-card-content class="content">
       <div class="divider" role="separator" aria-label="Divider"></div>
-      <app-softball-game-list [softballGames]="softballGames" />
+      <app-softball-game-list [softballGames]="$softballGames | async" />
     </mat-card-content>
   </mat-card>
 </main>

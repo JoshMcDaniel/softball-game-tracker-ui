@@ -46,7 +46,7 @@ main {
       rgba(103, 7, 215, 0.75),
       rgba(255, 215, 0, 0.5)
     ),
-    url("/assets/images/batting-girl-trimmed.png");
+    url("/assets/images/batting-girl.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -69,6 +69,13 @@ main {
   mat-card-subtitle {
     color: white;
   }
+  mat-card-subtitle {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.to-all-games-btn {
+  width: fit-content;
 }
 
 .gradient-bg-color {
@@ -233,8 +240,12 @@ main {
   }
 
   .content {
+    justify-items: center;
     mat-card-title {
       font-size: 1.5rem;
+    }
+    mat-card-subtitle {
+      margin-bottom: 0rem;
     }
   }
 }

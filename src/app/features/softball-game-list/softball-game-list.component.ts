@@ -14,5 +14,5 @@ import { RouterModule } from '@angular/router';
 })
 export class SoftballGameListComponent {
   @Input() title: string = '';
-  @Input() softballGames: SoftballGame[] = [];
+  @Input() softballGames: SoftballGame[] | null = [];
 }

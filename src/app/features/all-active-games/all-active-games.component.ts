@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SoftballGame } from '../../shared/models/SoftballGame.model';
 import { SoftballGameApiService } from '../../shared/services/softball-game-api.service';
 import { MatCardModule } from '@angular/material/card';
 import { SoftballGameListComponent } from '../softball-game-list/softball-game-list.component';
@@ -15,10 +14,6 @@ import { SoftballGameListComponent } from '../softball-game-list/softball-game-l
 export class AllActiveGamesComponent {
   listTitle = 'Active Softball Games';
   listSubTitle = 'Select a game to see the current stats';
-  softballGames: SoftballGame[] = [];
-  constructor(private service: SoftballGameApiService) {
-    this.service
-      .getAllActiveGames()
-      .subscribe((res) => (this.softballGames = res));
-  }
+  $softballGames = this.service.$softballGames;
+  constructor(private service: SoftballGameApiService) {}
 }
