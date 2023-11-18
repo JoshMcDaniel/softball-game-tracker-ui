@@ -1,0 +1,25 @@
+<main class="main gradient-bg-color">
+  <div class="header-container">
+    <img
+      src="/assets/images/batting-girl.png"
+      alt="Animated Softball girl swinging a bat"
+    />
+  </div>
+  <mat-card class="mat-mdc-elevation-specific mat-elevation-z8 card">
+    <mat-card-header class="card-header">
+      <img class="logo" src="/assets/images/softball-scoreboard-logo.jpeg" />
+      <div>
+        <mat-card-title>
+          <h1>{{ listTitle }}</h1>
+        </mat-card-title>
+        <mat-card-subtitle>
+          {{ listSubTitle }}
+        </mat-card-subtitle>
+      </div>
+    </mat-card-header>
+    <mat-card-content class="content">
+      <div class="divider" role="separator" aria-label="Divider"></div>
+      <app-softball-game-list [softballGames]="softballGames" />
+    </mat-card-content>
+  </mat-card>
+</main>
