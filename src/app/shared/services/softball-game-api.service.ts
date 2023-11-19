@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { SoftballGame } from '../models/SoftballGame.model';
+import baseApiUrl from '../constants/baseApiUrl';
 
 @Injectable({
   providedIn: 'root',
@@ -16,13 +17,13 @@ export class SoftballGameApiService {
   }
 
   getAllActiveGames(): Observable<SoftballGame[]> {
-    return this.http.get<SoftballGame[]>(`/api/getAllActiveGames`);
+    return this.http.get<SoftballGame[]>(`${baseApiUrl}/getAllActiveGames`);
   }
 
   getGameById(gameId: string): Observable<SoftballGame> {
     const options = {
       params: new HttpParams().set('documentId', gameId),
     };
-    return this.http.get<SoftballGame>(`/api/getGameById`, options);
+    return this.http.get<SoftballGame>(`${baseApiUrl}/getGameById`, options);
   }
 }
