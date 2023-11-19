@@ -3,12 +3,8 @@
     "rules": "database.rules.json"
   },
   "hosting": {
-    "public": "dist/softball-game-tracker-ui",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
+    "public": "dist/softball-game-tracker-ui/browser",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
         "source": "**",
