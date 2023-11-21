@@ -1,23 +1,24 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpParams,
+} from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 import { SoftballGame } from '../models/SoftballGame.model';
 import baseApiUrl from '../constants/baseApiUrl';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SoftballGameApiService {
-  $softballGames: BehaviorSubject<SoftballGame[]> = new BehaviorSubject<
-    SoftballGame[]
-  >([]);
-
-  constructor(private http: HttpClient) {
-    this.getAllActiveGames().subscribe((res) => this.$softballGames.next(res));
-  }
+  constructor(private http: HttpClient, private _snackBar: MatSnackBar) {}
 
   getAllActiveGames(): Observable<SoftballGame[]> {
-    return this.http.get<SoftballGame[]>(`${baseApiUrl}/getAllActiveGames`);
+    return this.http
+      .get<SoftballGame[]>(`${baseApiUrl}/getAllActiveGames`)
+      .pipe(catchError((err) => this.fetAllGamesErrorHandler(err)));
   }
 
   getGameById(gameId: string): Observable<SoftballGame> {
@@ -25,5 +26,13 @@ export class SoftballGameApiService {
       params: new HttpParams().set('documentId', gameId),
     };
     return this.http.get<SoftballGame>(`${baseApiUrl}/getGameById`, options);
+  }
+
+  fetAllGamesErrorHandler(error: HttpErrorResponse) {
+    const config: MatSnackBarConfig = {
+      duration: 4_000,
+    };
+    this._snackBar.open('Error retrieving games. Try again later.', '', config);
+    return throwError(() => error.message || 'server error.');
   }
 }

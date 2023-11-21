@@ -3,17 +3,28 @@ import { CommonModule } from '@angular/common';
 import { SoftballGameApiService } from '../../shared/services/softball-game-api.service';
 import { MatCardModule } from '@angular/material/card';
 import { SoftballGameListComponent } from '../softball-game-list/softball-game-list.component';
+import { finalize } from 'rxjs';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-all-active-games',
   standalone: true,
-  imports: [CommonModule, MatCardModule, SoftballGameListComponent],
+  imports: [
+    CommonModule,
+    MatCardModule,
+    MatSnackBarModule,
+    SoftballGameListComponent,
+  ],
   templateUrl: './all-active-games.component.html',
   styleUrl: './all-active-games.component.scss',
 })
 export class AllActiveGamesComponent {
   listTitle = 'Active Softball Games';
   listSubTitle = 'Select a game to see the current stats';
-  $softballGames = this.service.$softballGames;
-  constructor(private service: SoftballGameApiService) {}
+  isRequestPending = false;
+  $softballGames = this._service
+    .getAllActiveGames()
+    .pipe(finalize(() => (this.isRequestPending = false)));
+
+  constructor(private _service: SoftballGameApiService) {}
 }
