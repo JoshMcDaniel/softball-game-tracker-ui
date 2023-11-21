@@ -11,5 +11,14 @@
       {{ game.homeTeamName }} vs {{ game.awayTeamName }}
     </div>
   </a>
+  } @empty {
+  <ngx-skeleton-loader
+    count="3"
+    appearance="line"
+    [theme]="{
+      'border-radius': '4px',
+      height: '50px',
+    }"
+  ></ngx-skeleton-loader>
   }
 </mat-list>
