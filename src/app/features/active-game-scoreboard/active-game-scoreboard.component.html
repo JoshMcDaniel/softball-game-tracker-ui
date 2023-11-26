@@ -1,1 +1,10 @@
-<p>active-game-scoreboard works!</p>
+@if (activeSoftballGame$ | async; as game) {
+<mat-card class="mat-mdc-elevation-specific mat-elevation-z8 card">
+  <mat-card-content class="content">
+    <mat-card-title>
+      {{ game.homeTeamName }} VS {{ game.awayTeamName }}
+    </mat-card-title>
+    <mat-card-subtitle> Inning: {{ game.currentInning }} </mat-card-subtitle>
+  </mat-card-content>
+</mat-card>
+}
