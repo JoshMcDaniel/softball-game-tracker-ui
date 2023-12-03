@@ -1,10 +1,28 @@
-@if (activeSoftballGame$ | async; as game) {
-<mat-card class="mat-mdc-elevation-specific mat-elevation-z8 card">
-  <mat-card-content class="content">
-    <mat-card-title>
-      {{ game.homeTeamName }} VS {{ game.awayTeamName }}
-    </mat-card-title>
-    <mat-card-subtitle> Inning: {{ game.innings.length }} </mat-card-subtitle>
-  </mat-card-content>
-</mat-card>
-}
+<div class="container gradient-bg-color">
+  @if (activeSoftballGame$ | async; as game) {
+  <mat-card
+    id="score-board"
+    class="mat-mdc-elevation-specific mat-elevation-z8"
+  >
+    <app-score-block
+      class="home-score"
+      [text]="game.homeTeamName.toUpperCase()"
+      [score]="game.innings[game.innings.length - 1].homeTeamScore"
+    />
+    <app-score-block
+      class="innings"
+      text="INNING"
+      [score]="game.innings.length"
+    />
+    <app-score-block
+      class="away-score"
+      [text]="game.awayTeamName.toUpperCase()"
+      [score]="game.innings[game.innings.length - 1].awayTeamScore"
+    />
+    <mat-divider class="divider"></mat-divider>
+    <app-score-block class="balls" text="BALLS" [score]="game.balls" />
+    <app-score-block class="strikes" text="STRIKES" [score]="game.strikes" />
+    <app-score-block class="outs" text="OUTS" [score]="game.outs" />
+  </mat-card>
+  }
+</div>

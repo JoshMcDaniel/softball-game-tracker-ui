@@ -1,0 +1,64 @@
+.container {
+  min-height: 100dvh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+#score-board {
+  display: grid;
+  grid-template-areas:
+    "hts innings ats"
+    "divider divider divider"
+    "balls strikes  outs";
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: 1fr 1px 1fr;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1rem;
+  color: #fff;
+  background-color: #333;
+  padding: 2rem 1rem;
+  width: min(100%, 500px);
+  min-height: 350px;
+  height: fit-content;
+}
+
+.innings {
+  grid-area: innings;
+  height: 100%;
+  width: 100%;
+}
+
+.home-score {
+  grid-area: hts;
+  height: 100%;
+  width: 100%;
+}
+
+.away-score {
+  grid-area: ats;
+  height: 100%;
+  width: 100%;
+}
+
+.divider {
+  grid-area: divider;
+  border-top-color: #fff;
+  width: 100%;
+}
+
+.balls {
+  grid-area: balls;
+}
+
+.strikes {
+  grid-area: strikes;
+}
+
+.outs {
+  grid-area: outs;
+}
