@@ -4,25 +4,25 @@
     id="score-board"
     class="mat-mdc-elevation-specific mat-elevation-z8"
   >
+    <span class="home-name">{{ game.homeTeamName.toUpperCase() }}</span>
     <app-score-block
       class="home-score"
-      [text]="game.homeTeamName.toUpperCase()"
       [score]="game.innings[game.innings.length - 1].homeTeamScore"
     />
-    <app-score-block
-      class="innings"
-      text="INNING"
-      [score]="game.innings.length"
-    />
+    <span class="innings-text">INNING</span>
+    <app-score-block class="innings" [score]="game.innings.length" />
+    <span class="away-name">{{ game.awayTeamName.toUpperCase() }}</span>
     <app-score-block
       class="away-score"
-      [text]="game.awayTeamName.toUpperCase()"
       [score]="game.innings[game.innings.length - 1].awayTeamScore"
     />
     <mat-divider class="divider"></mat-divider>
-    <app-score-block class="balls" text="BALLS" [score]="game.balls" />
-    <app-score-block class="strikes" text="STRIKES" [score]="game.strikes" />
-    <app-score-block class="outs" text="OUTS" [score]="game.outs" />
+    <span class="balls-text">BALLS</span>
+    <app-score-block class="balls" [score]="game.balls" />
+    <span class="strikes-text">STRIKES</span>
+    <app-score-block class="strikes" [score]="game.strikes" />
+    <span class="outs-text">OUTS</span>
+    <app-score-block class="outs" [score]="game.outs" />
   </mat-card>
   }
 </div>
