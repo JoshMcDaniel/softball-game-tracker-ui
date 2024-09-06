@@ -21,5 +21,5 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 })
 export class SoftballGameListComponent {
   @Input() title: string = '';
-  @Input() softballGames: SoftballGame[] | null = [];
+  @Input() softballGames: SoftballGame[] | null | undefined = [];
 }

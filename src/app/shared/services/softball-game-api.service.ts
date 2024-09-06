@@ -3,23 +3,35 @@ import {
   HttpErrorResponse,
   HttpParams,
 } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable, catchError, throwError } from 'rxjs';
+import { inject, Injectable } from '@angular/core';
+import { Observable, first, map, throwError } from 'rxjs';
 import { SoftballGame } from '../models/SoftballGame.model';
 import baseApiUrl from '../constants/baseApiUrl';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SoftballGameApiService {
-  constructor(private http: HttpClient, private _snackBar: MatSnackBar) {}
+  afs = inject(AngularFirestore);
+  private http = inject(HttpClient);
+  private _snackBar = inject(MatSnackBar);
 
-  getAllActiveGames(): Observable<SoftballGame[]> {
-    return this.http
-      .get<SoftballGame[]>(`${baseApiUrl}/getAllActiveGames`)
-      .pipe(catchError((err) => this.fetAllGamesErrorHandler(err)));
-  }
+  getAllActiveGames = (): Observable<SoftballGame[] | undefined> =>
+    this.afs
+      .collection<SoftballGame>('activeSoftballGames')
+      .snapshotChanges()
+      .pipe(
+        map((snaps) => snaps.map((snap) => snap.payload.doc.data())),
+        first()
+      );
+
+  // getAllActiveGames(): Observable<SoftballGame[]> {
+  //   return this.http
+  //     .get<SoftballGame[]>(`${baseApiUrl}/getAllActiveGames`)
+  //     .pipe(catchError((err) => this.fetAllGamesErrorHandler(err)));
+  // }
 
   getGameById(gameId: string): Observable<SoftballGame> {
     const options = {

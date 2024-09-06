@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SoftballGameApiService } from '../../shared/services/softball-game-api.service';
 import { MatCardModule } from '@angular/material/card';
@@ -19,12 +19,12 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
   styleUrl: './all-active-games.component.scss',
 })
 export class AllActiveGamesComponent {
+  softballGameApiService = inject(SoftballGameApiService);
+
   listTitle = 'Active Softball Games';
   listSubTitle = 'Select a game to see the current stats';
   isRequestPending = false;
-  $softballGames = this._service
+  $softballGames = this.softballGameApiService
     .getAllActiveGames()
     .pipe(finalize(() => (this.isRequestPending = false)));
-
-  constructor(private _service: SoftballGameApiService) {}
 }
