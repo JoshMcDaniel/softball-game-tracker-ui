@@ -13,5 +13,6 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideAnimations(),
     { provide: FIREBASE_OPTIONS, useValue: environment.firebaseConfig },
-  ],
+    provideAnimations()
+],
 };
