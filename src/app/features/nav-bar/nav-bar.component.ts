@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -21,5 +22,15 @@ import { RouterModule } from '@angular/router';
   styleUrl: './nav-bar.component.scss',
 })
 export class NavBarComponent {
+  authService = inject(AuthService);
+
   title = 'Game Tracker';
+
+  logout(): void {
+    this.authService.logout();
+  }
+
+  get user() {
+    return this.authService.currentUserSignal();
+  }
 }

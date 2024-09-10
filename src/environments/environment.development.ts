@@ -1,6 +1,7 @@
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8080',
+  apiUrl: 'http://localhost:4200',
+  // apiUrl: 'http://localhost:8080',
   firebaseConfig: {
     apiKey: 'AIzaSyCROc-lTOBe4pcGYxshSf9VbQbPadeQHzA',
     authDomain: 'softballgametracker-a3591.firebaseapp.com',

@@ -5,10 +5,18 @@
   <mat-menu #menu="matMenu">
     <a mat-menu-item routerLink="">Home</a>
     <a mat-menu-item routerLink="active-games">All Games</a>
+    @if (user) {
+    <a mat-menu-item routerLink="dashboard">Dashboard</a>
+    <button mat-menu-item (click)="logout()">Logout</button>
+    } @else if (user === null) {
+    <a mat-menu-item routerLink="login">Login</a>
+    }
   </mat-menu>
 
   <a mat-button routerLink=""
     ><span>{{ title }}</span></a
   >
+
+  <span>{{ user?.username }}</span>
   <span class="example-spacer"></span>
 </mat-toolbar>
