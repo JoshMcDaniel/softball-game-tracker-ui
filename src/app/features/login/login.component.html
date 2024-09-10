@@ -1,21 +1,45 @@
-<h1>Login</h1>
-
-@if (errorMessage) {
-<div>{{ errorMessage }}</div>
-}
-
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <div>
-    <input type="text" placeholder="Email" formControlName="email" />
-  </div>
-  <div>
-    <input type="password" placeholder="Password" formControlName="password" />
-  </div>
-  <div>
-    <button type="submit">Sign In</button>
-  </div>
-</form>
-
-<div>
-  <button (click)="loginWithGoogle()">Login with Google</button>
+<div class="container">
+  <mat-card appearance="outlined" class="login-card">
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+      <mat-card-subtitle>Login to create and manage games.</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="login-card-content">
+      @if (errorMessage) {
+      <div>{{ errorMessage }}</div>
+      }
+      <!-- <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div>
+        <input type="text" placeholder="Email" formControlName="email" />
+      </div>
+      <div>
+        <input
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+        />
+      </div>
+      <div>
+        <button type="submit">Sign In</button>
+      </div>
+    </form> -->
+      <mat-card appearance="raised" class="notice-card">
+        <mat-card-content>
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Info icon"
+            fontIcon="info"
+          ></mat-icon>
+          <span
+            >Other login options coming in a future release.</span
+          ></mat-card-content
+        >
+      </mat-card>
+      <mat-divider></mat-divider>
+      <button mat-fab extended color="primary" (click)="loginWithGoogle()">
+        <div mat-card-avatar class="google-icon"></div>
+        <span>Login with Google</span>
+      </button>
+    </mat-card-content>
+  </mat-card>
 </div>

@@ -1,0 +1,33 @@
+.container {
+  display: grid;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+}
+
+.login-card {
+  width: 400px;
+  max-width: 95vw;
+  display: grid;
+  row-gap: 1rem;
+}
+
+.login-card-content {
+  display: grid;
+  row-gap: 1rem;
+}
+
+.google-icon {
+  background-image: url("/assets/icons/googleicon.png");
+  background-size: cover;
+  margin: 0;
+}
+
+.notice-card {
+  mat-card-content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 0.5rem;
+  }
+}
