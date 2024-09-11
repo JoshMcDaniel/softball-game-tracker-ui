@@ -1,8 +1,8 @@
 export interface SoftballGame {
-  documentId: string;
+  documentId?: string;
   homeTeamName: string;
   awayTeamName: string;
-  gameStatus: 'SCHEDULED' | 'ACTIVE' | 'FINAL';
+  gameStatus: SoftballGameStatus;
   startDateTime: string;
   innings: {
     homeTeamScore: number;
@@ -13,3 +13,5 @@ export interface SoftballGame {
   balls: number;
   outs: number;
 }
+
+export type SoftballGameStatus = 'SCHEDULED' | 'ACTIVE' | 'FINAL';

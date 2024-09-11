@@ -1,0 +1,63 @@
+<main class="container">
+  <mat-card class="form-card">
+    <mat-card-header>
+      <mat-card-title>Create a Game</mat-card-title>
+      <mat-card-subtitle
+        >Fill in the game details and submit the form to create a new
+        game</mat-card-subtitle
+      >
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="createGameForm" class="create-game-form">
+        <mat-form-field appearance="outline">
+          <mat-label>Home Team Name</mat-label>
+          <input matInput formControlName="homeTeamName" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Away Team Name</mat-label>
+          <input matInput formControlName="awayTeamName" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Game Status</mat-label>
+          <mat-select formControlName="gameStatus">
+            @for (status of gameStatusOptions; track status) {
+            <mat-option [value]="status.value">{{
+              status.displayText
+            }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>State date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            formControlName="startDateTime"
+          />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker touchUi #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Total Strikes</mat-label>
+          <input matInput formControlName="strikesAllowed" />
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        mat-fab
+        extended
+        color="primary"
+        class="submit-button"
+        (click)="onSubmit()"
+      >
+        <mat-icon>check</mat-icon>
+        Submit
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</main>

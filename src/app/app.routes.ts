@@ -30,6 +30,15 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'dashboard/create-games',
+    title: 'Create Games',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./features/dashboard/create-games/create-games.component').then(
+        (mod) => mod.CreateGamesComponent
+      ),
+  },
+  {
     path: 'active-games/:id',
     loadComponent: () =>
       import(
