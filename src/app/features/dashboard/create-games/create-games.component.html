@@ -11,15 +11,15 @@
       <form [formGroup]="createGameForm" class="create-game-form">
         <mat-form-field appearance="outline">
           <mat-label>Home Team Name</mat-label>
-          <input matInput formControlName="homeTeamName" />
+          <input matInput formControlName="homeTeamName" required />
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Away Team Name</mat-label>
-          <input matInput formControlName="awayTeamName" />
+          <input matInput formControlName="awayTeamName" required />
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Game Status</mat-label>
-          <mat-select formControlName="gameStatus">
+          <mat-select formControlName="gameStatus" required>
             @for (status of gameStatusOptions; track status) {
             <mat-option [value]="status.value">{{
               status.displayText
@@ -28,22 +28,41 @@
           </mat-select>
         </mat-form-field>
         <mat-form-field appearance="outline">
-          <mat-label>State date</mat-label>
-          <input
-            matInput
-            [matDatepicker]="picker"
-            formControlName="startDateTime"
-          />
-          <mat-hint>MM/DD/YYYY</mat-hint>
-          <mat-datepicker-toggle
-            matIconSuffix
-            [for]="picker"
-          ></mat-datepicker-toggle>
-          <mat-datepicker touchUi #picker></mat-datepicker>
+          <mat-label>Total Strikes</mat-label>
+          <input matInput formControlName="strikesAllowed" required />
         </mat-form-field>
         <mat-form-field appearance="outline">
-          <mat-label>Total Strikes</mat-label>
-          <input matInput formControlName="strikesAllowed" />
+          <mat-label>State Date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="datePicker"
+            formControlName="startDate"
+            required
+          />
+          <mat-hint>DD-MMM-YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="datePicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker touchUi #datePicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Start Time</mat-label>
+          <!-- <ngx-material-timepicker-toggle
+            [for]="timePicker"
+          ></ngx-material-timepicker-toggle> -->
+          <ngx-material-timepicker
+            #timePicker
+            timepickerClass="time-picker"
+          ></ngx-material-timepicker>
+          <input
+            matInput
+            aria-label="Start Time"
+            [ngxTimepicker]="timePicker"
+            readonly
+            formControlName="startTime"
+            required
+          />
         </mat-form-field>
       </form>
     </mat-card-content>
@@ -54,6 +73,7 @@
         color="primary"
         class="submit-button"
         (click)="onSubmit()"
+        [disabled]="isRequestPending || !createGameForm.valid"
       >
         <mat-icon>check</mat-icon>
         Submit

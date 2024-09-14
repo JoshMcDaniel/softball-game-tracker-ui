@@ -4,7 +4,7 @@ import {
   HttpParams,
 } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Observable, first, map, throwError } from 'rxjs';
+import { Observable, first, from, map, throwError } from 'rxjs';
 import { SoftballGame } from '../models/SoftballGame.model';
 import baseApiUrl from '../constants/baseApiUrl';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
@@ -46,5 +46,31 @@ export class SoftballGameApiService {
     };
     this._snackBar.open('Error retrieving games. Try again later.', '', config);
     return throwError(() => error.message || 'server error.');
+  }
+
+  createSoftballGame(gameDetails: SoftballGame) {
+    const documentId = this.createSoftballGameId(gameDetails);
+    const data = {
+      documentId,
+      ...gameDetails,
+    };
+    const promise = this.afs
+      .collection<SoftballGame>('activeSoftballGames')
+      .doc(documentId)
+      .set(data);
+
+    return from(promise);
+  }
+
+  createSoftballGameId(softballGame: SoftballGame): string {
+    const homeTeamId = softballGame.homeTeamName
+      .replaceAll(' ', '-')
+      .toLowerCase();
+    const awayTeamId = softballGame.awayTeamName
+      .replaceAll(' ', '-')
+      .toLowerCase();
+    return (
+      homeTeamId + '-vs-' + awayTeamId + '_T_' + softballGame.startDateTime
+    );
   }
 }
