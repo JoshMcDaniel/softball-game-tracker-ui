@@ -10,6 +10,21 @@
     <div matListItemTitle>
       {{ game.homeTeamName }} vs {{ game.awayTeamName }}
     </div>
+    @if (displayActionButtons) {
+    <div class="action-button-container">
+      <button
+        mat-mini-fab
+        (click)="
+          deleteGame.emit(game);
+          $event.stopPropagation();
+          $event.preventDefault()
+        "
+        aria-label="Delete game"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+    }
   </a>
   } @empty {
   <ngx-skeleton-loader

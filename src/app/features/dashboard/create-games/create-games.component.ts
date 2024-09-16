@@ -28,6 +28,7 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import * as _moment from 'moment';
 import { default as _rollupMoment } from 'moment';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
+import { Router } from '@angular/router';
 
 const moment = _rollupMoment || _moment;
 
@@ -93,6 +94,7 @@ export const MY_FORMATS = {
 })
 export class CreateGamesComponent {
   softballGameApiService = inject(SoftballGameApiService);
+  router = inject(Router);
 
   isRequestPending = false;
 
@@ -134,6 +136,7 @@ export class CreateGamesComponent {
       next: (res) => {
         this.createGameForm.reset();
         console.log('Game created: ', res);
+        this.router.navigateByUrl('/dashboard');
       },
       error: (err) => console.error({ err }),
       complete: () => (this.isRequestPending = false),

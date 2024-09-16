@@ -83,6 +83,26 @@ body {
 
   --primary: #791880;
   --secondary: #fcd232;
+  --success: #66bb6a;
+  --error: #f44336;
+  --warn: #ffa726;
+  --info: #29b6f6;
+
+  .mat-mdc-snack-bar-container {
+    &.alert-success {
+      --mdc-snackbar-container-color: var(--success);
+      --mat-mdc-snack-bar-button-color: #111;
+      --mdc-snackbar-supporting-text-color: #111;
+    }
+  }
+
+  .mat-mdc-snack-bar-container {
+    &.alert-error {
+      --mdc-snackbar-container-color: var(--error);
+      --mat-mdc-snack-bar-button-color: #111;
+      --mdc-snackbar-supporting-text-color: #111;
+    }
+  }
 
   .time-picker {
     --body-background-color: #fff;

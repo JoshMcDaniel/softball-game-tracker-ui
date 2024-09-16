@@ -73,4 +73,13 @@ export class SoftballGameApiService {
       homeTeamId + '-vs-' + awayTeamId + '_T_' + softballGame.startDateTime
     );
   }
+
+  deleteSoftballGame(documentId: string) {
+    const promise = this.afs
+      .collection<SoftballGame>('activeSoftballGames')
+      .doc(documentId)
+      .delete();
+
+    return from(promise);
+  }
 }

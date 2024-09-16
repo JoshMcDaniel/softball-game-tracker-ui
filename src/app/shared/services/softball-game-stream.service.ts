@@ -15,4 +15,7 @@ export class SoftballGameStreamService {
     this.afs
       .doc<SoftballGame>('activeSoftballGames' + '/' + gameId)
       .valueChanges();
+
+  getAllSoftballGamesStream = (): Observable<SoftballGame[] | undefined> =>
+    this.afs.collection<SoftballGame>('activeSoftballGames').valueChanges();
 }
