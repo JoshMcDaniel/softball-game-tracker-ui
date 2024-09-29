@@ -3,14 +3,14 @@
   @for (game of softballGames; track game.homeTeamName + game.awayTeamName) {
   <a
     mat-list-item
-    [routerLink]="game.documentId"
+    [routerLink]="getRouterLink(game)"
     class="list-item mat-elevation-z8"
   >
     <img matListItemIcon src="/assets/images/softball-icon.png" class="icon" />
     <div matListItemTitle>
       {{ game.homeTeamName }} vs {{ game.awayTeamName }}
     </div>
-    @if (displayActionButtons) {
+    @if (isManageable) {
     <div class="action-button-container">
       <button
         mat-mini-fab

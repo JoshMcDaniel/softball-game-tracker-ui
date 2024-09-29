@@ -24,6 +24,14 @@ import { MatButtonModule } from '@angular/material/button';
 export class SoftballGameListComponent {
   @Input() title: string = '';
   @Input() softballGames: SoftballGame[] | null | undefined = [];
-  @Input() displayActionButtons: boolean = false;
+  @Input() isManageable: boolean = false;
   @Output() deleteGame = new EventEmitter<SoftballGame>();
+
+  getRouterLink(game: SoftballGame): string {
+    let prefix = '';
+    if (this.isManageable) {
+      prefix = '/dashboard/manage-game/';
+    }
+    return `${prefix}${game.documentId}`;
+  }
 }

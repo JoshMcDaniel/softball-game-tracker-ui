@@ -1,10 +1,10 @@
 <h1 mat-header class="header">Create and manage games</h1>
-<a mat-raised-button routerLink="create-games">Create a Game</a>
+<a mat-raised-button routerLink="create-game">Create a Game</a>
 @if ($softballGames | async; as softballGames) { @if (softballGames.length > 0)
 {
 <app-softball-game-list
   [softballGames]="softballGames"
-  [displayActionButtons]="true"
+  [isManageable]="true"
   (deleteGame)="deleteGame($event)"
 >
 </app-softball-game-list>

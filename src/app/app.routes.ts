@@ -28,14 +28,56 @@ export const routes: Routes = [
       import('./features/dashboard/dashboard.component').then(
         (mod) => mod.DashboardComponent
       ),
+    // children: [
+    //   {
+    //     path: 'create-game',
+    //     title: 'Create Games',
+    //     loadComponent: () =>
+    //       import(
+    //         './features/dashboard/create-games/create-games.component'
+    //       ).then((mod) => mod.CreateGamesComponent),
+    //   },
+    //   {
+    //     path: 'manage-game/:id',
+    //     loadComponent: () =>
+    //       import('./features/dashboard/manage-game/manage-game.component').then(
+    //         (mod) => mod.ManageGameComponent
+    //       ),
+    //   },
+    //   {
+    //     path: 'manage-game',
+    //     loadComponent: () =>
+    //       import('./features/dashboard/manage-game/manage-game.component').then(
+    //         (mod) => mod.ManageGameComponent
+    //       ),
+    //   },
+    // ],
   },
   {
-    path: 'dashboard/create-games',
-    title: 'Create Games',
+    path: 'dashboard/create-game',
+    title: 'Create Game',
     canActivate: [authGuard],
     loadComponent: () =>
       import('./features/dashboard/create-games/create-games.component').then(
         (mod) => mod.CreateGamesComponent
+      ),
+  },
+  {
+    path: 'dashboard/manage-game/:id',
+    title: 'Manage Game',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./features/dashboard/manage-game/manage-game.component').then(
+        (mod) => mod.ManageGameComponent
+      ),
+  },
+  {
+    path: 'dashboard/manage-game',
+    title: 'Manage Game',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./features/dashboard/manage-game/manage-game.component').then(
+        (mod) => mod.ManageGameComponent
       ),
   },
   {
