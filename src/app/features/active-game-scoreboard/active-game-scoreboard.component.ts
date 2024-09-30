@@ -1,15 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { MatCardModule } from '@angular/material/card';
 import { SoftballGameStreamService } from '../../shared/services/softball-game-stream.service';
-import { ScoreBlockComponent } from './score-block/score-block.component';
-import { MatDividerModule } from '@angular/material/divider';
+import { TeamScoreCardComponent } from '../team-score-card/team-score-card.component';
+import { MatToolbar } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-active-game-scoreboard',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatDividerModule, ScoreBlockComponent],
+  imports: [CommonModule, TeamScoreCardComponent, MatToolbar],
   templateUrl: './active-game-scoreboard.component.html',
   styleUrl: './active-game-scoreboard.component.scss',
 })

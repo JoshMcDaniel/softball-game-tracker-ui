@@ -1,119 +1,145 @@
-.container {
+.team-cards-container {
+  position: relative;
   display: grid;
-  justify-content: center;
-  align-content: center;
-  height: 100%;
-  width: 100%;
+  grid-template-columns: 1fr 1fr;
 }
 
-#score-board {
+.versus {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.bottom-stats-container {
+  justify-content: space-evenly;
+}
+
+.bso-container {
   display: grid;
-  grid-template-areas:
-    "htn it atn"
-    "hts innings ats"
-    "divider divider divider"
-    "balls-text strikes-text outs-text"
-    "balls strikes outs";
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto auto 10px auto auto;
-  justify-items: center;
-  align-items: center;
-  align-content: space-evenly;
-  justify-content: center;
+  grid-template-rows: 1fr 1fr;
   text-align: center;
-  column-gap: 1rem;
-  color: #fff;
-  background-color: #333;
-  padding: 2rem;
-  width: min(100dvw, 500px);
-  min-height: 350px;
-  height: fit-content;
 }
 
-.home-name {
-  grid-area: htn;
-  font-size: 1.4rem;
-  font-weight: 600;
-}
+// .container {
+//   display: grid;
+//   justify-content: center;
+//   align-content: center;
+//   height: 100%;
+//   width: 100%;
+// }
 
-.home-score {
-  grid-area: hts;
-}
+// #score-board {
+//   display: grid;
+//   grid-template-areas:
+//     "htn it atn"
+//     "hts innings ats"
+//     "divider divider divider"
+//     "balls-text strikes-text outs-text"
+//     "balls strikes outs";
+//   grid-template-columns: 1fr 1fr 1fr;
+//   grid-template-rows: auto auto 10px auto auto;
+//   justify-items: center;
+//   align-items: center;
+//   align-content: space-evenly;
+//   justify-content: center;
+//   text-align: center;
+//   column-gap: 1rem;
+//   color: #fff;
+//   background-color: #333;
+//   padding: 2rem;
+//   width: min(100dvw, 500px);
+//   min-height: 350px;
+//   height: fit-content;
+// }
 
-.innings-text {
-  grid-area: it;
-  margin-top: -50%;
-}
+// .home-name {
+//   grid-area: htn;
+//   font-size: 1.4rem;
+//   font-weight: 600;
+// }
 
-.innings {
-  grid-area: innings;
-  margin-top: -50%;
-}
+// .home-score {
+//   grid-area: hts;
+// }
 
-.away-name {
-  grid-area: atn;
-  font-size: 1.4rem;
-  font-weight: 600;
-}
+// .innings-text {
+//   grid-area: it;
+//   margin-top: -50%;
+// }
 
-.away-score {
-  grid-area: ats;
-}
+// .innings {
+//   grid-area: innings;
+//   margin-top: -50%;
+// }
 
-.divider {
-  grid-area: divider;
-  border-top-color: #fff;
-  width: 100%;
-}
+// .away-name {
+//   grid-area: atn;
+//   font-size: 1.4rem;
+//   font-weight: 600;
+// }
 
-.balls-text {
-  grid-area: balls-text;
-}
+// .away-score {
+//   grid-area: ats;
+// }
 
-.strikes-text {
-  grid-area: strikes-text;
-}
+// .divider {
+//   grid-area: divider;
+//   border-top-color: #fff;
+//   width: 100%;
+// }
 
-.outs-text {
-  grid-area: outs-text;
-}
+// .balls-text {
+//   grid-area: balls-text;
+// }
 
-.balls {
-  grid-area: balls;
-}
+// .strikes-text {
+//   grid-area: strikes-text;
+// }
 
-.strikes {
-  grid-area: strikes;
-}
+// .outs-text {
+//   grid-area: outs-text;
+// }
 
-.outs {
-  grid-area: outs;
-}
+// .balls {
+//   grid-area: balls;
+// }
 
-@media only screen and (max-width: 600px) {
-  #score-board {
-    grid-template-areas:
-      "htn hts"
-      "atn ats"
-      "it innings"
-      "divider divider"
-      "balls-text balls"
-      "strikes-text strikes"
-      "outs-text outs";
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(7, 1fr);
-    row-gap: 1rem;
-    padding: 2rem 1rem;
-    justify-items: initial;
-    justify-content: space-around;
-    text-align: start;
-  }
+// .strikes {
+//   grid-area: strikes;
+// }
 
-  .innings-text {
-    margin-top: 0;
-  }
+// .outs {
+//   grid-area: outs;
+// }
 
-  .innings {
-    margin-top: 0;
-  }
-}
+// @media only screen and (max-width: 600px) {
+//   #score-board {
+//     grid-template-areas:
+//       "htn hts"
+//       "atn ats"
+//       "it innings"
+//       "divider divider"
+//       "balls-text balls"
+//       "strikes-text strikes"
+//       "outs-text outs";
+//     grid-template-columns: 1fr 1fr;
+//     grid-template-rows: repeat(7, 1fr);
+//     row-gap: 1rem;
+//     padding: 2rem 1rem;
+//     justify-items: initial;
+//     justify-content: space-around;
+//     text-align: start;
+//   }
+
+//   .innings-text {
+//     margin-top: 0;
+//   }
+
+//   .innings {
+//     margin-top: 0;
+//   }
+// }

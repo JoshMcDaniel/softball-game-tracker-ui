@@ -1,0 +1,15 @@
+.team-name-container {
+  justify-content: center;
+}
+
+.score-section {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  min-height: 400px;
+}
+
+.score {
+  font-size: 3rem;
+  font-family: monospace;
+}
