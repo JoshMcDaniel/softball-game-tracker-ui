@@ -42,3 +42,8 @@ testem.log
 Thumbs.db
 
 hosting.*
+
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json

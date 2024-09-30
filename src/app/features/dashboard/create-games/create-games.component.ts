@@ -25,12 +25,9 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 // Since Moment.js doesn't have a default export, we normally need to import using the `* as`
 // syntax. However, rollup creates a synthetic default module and we thus need to import it using
 // the `default as` syntax.
-import * as _moment from 'moment';
-import { default as _rollupMoment } from 'moment';
+import moment from 'moment';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { Router } from '@angular/router';
-
-const moment = _rollupMoment || _moment;
 
 interface CreateGameForm {
   homeTeamName: FormControl<string>;
