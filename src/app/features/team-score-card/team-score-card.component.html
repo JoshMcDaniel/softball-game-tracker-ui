@@ -1,9 +1,18 @@
-<mat-toolbar class="team-name-container">
-  <span>{{ teamName.toUpperCase() }}</span>
-</mat-toolbar>
+<div
+  [ngClass]="
+    teamType === 'away' ? 'away-team-container' : 'home-team-container'
+  "
+>
+  <mat-toolbar
+    [color]="teamType === 'away' ? 'secondary' : 'primary'"
+    class="team-name-container"
+  >
+    <span>{{ teamName.toUpperCase() }}</span>
+  </mat-toolbar>
 
-<div class="score-section">
-  <div class="score">
-    {{ score }}
+  <div class="score-section">
+    <div class="score">
+      {{ score }}
+    </div>
   </div>
 </div>

@@ -155,6 +155,7 @@ export class CreateGamesComponent {
       awayTeamName: '',
       gameStatus: 'SCHEDULED',
       startDateTime: '',
+      inning: 1,
       innings: [
         {
           homeTeamScore: 0,

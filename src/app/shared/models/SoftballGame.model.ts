@@ -4,6 +4,7 @@ export interface SoftballGame {
   awayTeamName: string;
   gameStatus: SoftballGameStatus;
   startDateTime: string;
+  inning: number;
   innings: {
     homeTeamScore: number;
     awayTeamScore: number;

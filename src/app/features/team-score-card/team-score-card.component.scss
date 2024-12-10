@@ -1,15 +1,56 @@
+.home-team-container {
+  display: grid;
+  grid-template-areas:
+    "nameSection"
+    "scoreSection";
+  height: 100%;
+  grid-template-rows: auto 1fr;
+  // background-color: rgba(var(--primaryRGBA), 0.4);
+}
+
+.away-team-container {
+  display: grid;
+  grid-template-areas:
+    "nameSection"
+    "scoreSection";
+  height: 100%;
+  grid-template-rows: auto 1fr;
+  // background-color: rgba(var(--secondaryRGBA), 0.4);
+}
+
 .team-name-container {
   justify-content: center;
+  grid-area: nameSection;
 }
 
 .score-section {
   display: grid;
+  grid-area: scoreSection;
   align-items: center;
   justify-items: center;
-  min-height: 400px;
+  height: 100%;
 }
 
 .score {
-  font-size: 3rem;
+  font-size: 8rem;
   font-family: monospace;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  border: 3px solid #f1f1f1;
+  z-index: 2;
+  padding: 3rem;
+}
+
+@media screen and (max-width: 480px) {
+  .home-team-container {
+    grid-template-areas:
+      "scoreSection"
+      "nameSection";
+    grid-template-rows: 1fr auto;
+  }
+
+  .score {
+    font-size: 6rem;
+    font-family: monospace;
+  }
 }

@@ -13,5 +13,7 @@ export class TeamScoreCardComponent {
   @Input()
   teamName: string = '';
   @Input()
+  teamType: 'home' | 'away' | undefined;
+  @Input()
   score: number = 0;
 }

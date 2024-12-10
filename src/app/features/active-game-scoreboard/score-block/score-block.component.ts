@@ -11,5 +11,5 @@ import { MatCardModule } from '@angular/material/card';
 })
 export class ScoreBlockComponent {
   @Input() text: string = '';
-  @Input() score: number = 999;
+  @Input() score: number = 99;
 }

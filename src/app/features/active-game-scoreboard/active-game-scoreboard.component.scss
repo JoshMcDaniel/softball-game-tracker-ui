@@ -1,36 +1,67 @@
+.container {
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  height: calc(100vh - 64px);
+}
+
+.bg-image {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  background-image: url("../../..//assets/images/stadium.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+  // background-image: linear-gradient(
+  //   45deg,
+  //   rgba(103, 7, 215, 0.75),
+  //   rgba(255, 215, 0, 0.5)
+  // );
+  // url("/assets/images/batting-girl.png");
+}
+
 .team-cards-container {
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  z-index: 2;
 }
 
 .versus {
   position: absolute;
   left: 50%;
-  transform: translate(-50%, 0);
+  transform: translate(-50%, 6px);
+  background-image: url("../../..//assets/images/softball-icon.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 1rem;
+  font-weight: bold;
 }
 
 .spacer {
   flex: 1 1 auto;
 }
 
-.bottom-stats-container {
-  justify-content: space-evenly;
-}
+@media screen and (max-width: 480px) {
+  .container {
+    height: calc(100vh - 56px);
+  }
 
-.bso-container {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  text-align: center;
-}
+  .team-cards-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
 
-// .container {
-//   display: grid;
-//   justify-content: center;
-//   align-content: center;
-//   height: 100%;
-//   width: 100%;
-// }
+  .versus {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
 
 // #score-board {
 //   display: grid;
