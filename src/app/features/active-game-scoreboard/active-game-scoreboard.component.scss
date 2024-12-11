@@ -1,8 +1,8 @@
 .container {
   position: relative;
   display: grid;
-  grid-template-rows: 1fr auto;
-  height: calc(100vh - 64px);
+  grid-template-rows: 1fr auto auto;
+  height: calc(100dvh - 64px);
 }
 
 .bg-image {
